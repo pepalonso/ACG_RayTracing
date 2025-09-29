@@ -26,9 +26,14 @@ In addition you need to install *CMake* which can be downloaded from [here](http
 
 Once you have all required open a Windows Terminal, go to the project folder and do this steps:
 ```console
+cd ACG_RayTracing
+
 mkdir build
+
 cd build
+
 cmake ..
+
 ```
 
 This will generate a Visual Studio project inside the folder ``build/`` (.sln) that you can use to compile and debug the framework.
