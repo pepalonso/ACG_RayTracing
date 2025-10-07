@@ -1,0 +1,10 @@
+dependencies: \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/infiniteplan.cpp \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/infiniteplan.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/shape.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/../core/matrix4x4.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/../core/vector3d.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/../core/ray.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/../materials/material.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/../materials/../core/vector3d.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/../core/intersection.h

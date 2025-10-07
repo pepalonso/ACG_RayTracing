@@ -1,5 +1,5 @@
 #include "intersectionshader.h"
-#include "../core/utils.h"
+#include "core/utils.h"
 
 IntersectionShader::IntersectionShader() :
     hitColor(Vector3D(1, 0, 0))
@@ -14,7 +14,10 @@ Vector3D IntersectionShader::computeColor(const Ray &r, const std::vector<Shape*
     //(FILL..)
         
     //if..
-
+    if (Utils::hasIntersection(r, objList)) {
+        return Vector3D(1.0, 0.0, 0.0);
+    };
+     
     //else...
 
     return bgColor;

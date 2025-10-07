@@ -3,10 +3,10 @@
 
 #include <vector>
 
-#include "../core/ray.h"
-#include "../lightsources/pointlightsource.h"
-#include "../lightsources/arealightsource.h"
-#include "../shapes/shape.h"
+#include "core/ray.h"
+#include "lightsources/pointlightsource.h"
+#include "lightsources/arealightsource.h"
+#include "shapes/shape.h"
 
 class Shader
 {

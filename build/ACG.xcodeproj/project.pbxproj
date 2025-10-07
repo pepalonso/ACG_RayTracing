@@ -1,0 +1,936 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		AE24D8259A3ECC932A9FCF62 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 4318567B115C4B078CA34BC8 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				789DD0998114BFC2D91C2DE9 /* Generate CMakeFiles/ALL_BUILD */,
+			);
+			dependencies = (
+				64268369DA04434CB30D2104 /* PBXTargetDependency */,
+				5AC20784AE13489CBABB1D89 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		BA232B4BCC257590B213AA49 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 705206B9DA654CD99B3240C7 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				3D906E4599EE68C00A80D24F /* Generate CMakeFiles/ZERO_CHECK */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		09425D126F4D4563B3CB2743 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/whittedintegrator.cpp */ = {isa = PBXBuildFile; fileRef = BD918AB8CCC74A0FAF155004 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/whittedintegrator.cpp */; };
+		099E28350DE74CD99E06A030 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/phong.cpp */ = {isa = PBXBuildFile; fileRef = F4FC80623425443A84BD599B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/phong.cpp */; };
+		0AC4AC413C9A4EBA9E8C0A2F /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/ortographic.h */ = {isa = PBXBuildFile; fileRef = 124012E5ABD441F09BD9D32A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/ortographic.h */; };
+		0D0EA160C10D42DDB25E10F6 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/shader.cpp */ = {isa = PBXBuildFile; fileRef = 1C6BBEA938F1494385E4FB64 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/shader.cpp */; };
+		10C2168FA3944E9E94A25739 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/intersectionshader.h */ = {isa = PBXBuildFile; fileRef = D910CBE2151D4695B17587BB /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/intersectionshader.h */; };
+		14736E8C034D4458AEF02232 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/sphere.h */ = {isa = PBXBuildFile; fileRef = 15551BBB8E6D4726A9EFF33A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/sphere.h */; };
+		1560E5EE80A34F0AA4E5F0EB /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/intersection.cpp */ = {isa = PBXBuildFile; fileRef = 79A710BC10194002868943F0 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/intersection.cpp */; };
+		15951FD7B2D94E50B5CC3D55 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/tinyexr.h */ = {isa = PBXBuildFile; fileRef = A9F3034096F8455391D932C9 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/tinyexr.h */; };
+		15C412A5894446A3A927E927 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/depthshader.cpp */ = {isa = PBXBuildFile; fileRef = 43406992B3504AF2AE223D06 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/depthshader.cpp */; };
+		1A6CDFDB270D468381280961 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/phong.h */ = {isa = PBXBuildFile; fileRef = 785EDB590D31435DAC0D0C0B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/phong.h */; };
+		1FA163CA9BCB46C792AA5A2E /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/infiniteplan.h */ = {isa = PBXBuildFile; fileRef = B0BF4B4F2911407AA0FCF801 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/infiniteplan.h */; };
+		201244D4258847C1A424E91F /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/intersectionshader.cpp */ = {isa = PBXBuildFile; fileRef = D39E5B93892C4602B308695C /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/intersectionshader.cpp */; };
+		2835240618E842038F0FCE8A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/material.h */ = {isa = PBXBuildFile; fileRef = 9DC9245AAD0949929BFA1415 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/material.h */; };
+		35B1D916D8DB4AA0A7B057D7 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/utils.h */ = {isa = PBXBuildFile; fileRef = AA4399CCCF67477F89BEC0B6 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/utils.h */; };
+		35ECC0EEAD934771A83B0525 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/material.cpp */ = {isa = PBXBuildFile; fileRef = 2A53E7A2E7A64AB6A12F45AA /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/material.cpp */; };
+		51E109F17777443889465B6D /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/ortographic.cpp */ = {isa = PBXBuildFile; fileRef = 2D3EF49C99B84EAC81408EFF /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/ortographic.cpp */; };
+		58DC8566220B48F999D28E14 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 8EE7F1A7EE57485EBD4E46F1 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/CMakeLists.txt */; };
+		5C137535C11346E7AC96956E /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/bitmap.h */ = {isa = PBXBuildFile; fileRef = C6622D03972245DCAC196C8F /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/bitmap.h */; };
+		64616FBC5BE344129301151F /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/square.h */ = {isa = PBXBuildFile; fileRef = B52235C81D68444B9AADB0DE /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/square.h */; };
+		68EB593321F44DBDA0E1783C /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/ray.cpp */ = {isa = PBXBuildFile; fileRef = 0E3CF30A971A4AECABFB29CD /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/ray.cpp */; };
+		6A2EB8164C2B44D2B999D3B5 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/camera.h */ = {isa = PBXBuildFile; fileRef = ECF894FDAB0347C3B1554F28 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/camera.h */; };
+		6B1706C5B02541AFB6C6B708 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/emissive.cpp */ = {isa = PBXBuildFile; fileRef = 3085D9CF3C6A44348E7D9107 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/emissive.cpp */; };
+		77BCDB85442E4EF1A3EF4B46 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/vector3d.cpp */ = {isa = PBXBuildFile; fileRef = BB08D74653BC445D8490E277 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/vector3d.cpp */; };
+		78C29CDAC22A449DB11E44EA /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/lightsource.h */ = {isa = PBXBuildFile; fileRef = D23D5E86B5B14942ACE77973 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/lightsource.h */; };
+		7F1EA651ED624E8191D2F588 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/vector3d.h */ = {isa = PBXBuildFile; fileRef = D94467BF4E02497D99D7162B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/vector3d.h */; };
+		823F3065A54A477EBF946AA4 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/main.cpp */ = {isa = PBXBuildFile; fileRef = AAC7C654F79A441DB29C2197 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/main.cpp */; };
+		9595170FA5024FFC8C2DC91B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/eqsolver.cpp */ = {isa = PBXBuildFile; fileRef = A4050DACD208457285AFAF63 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/eqsolver.cpp */; };
+		98E373562FB34E939DEDBA1C /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/square.cpp */ = {isa = PBXBuildFile; fileRef = 896C085F5FD8419B87C7FE80 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/square.cpp */; };
+		9C225FF6A12C4268A16C8B8F /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/pointlightsource.h */ = {isa = PBXBuildFile; fileRef = 72FC64A5233147D4AF540714 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/pointlightsource.h */; };
+		A18246B62A2C4DAF957DD6DC /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/camera.cpp */ = {isa = PBXBuildFile; fileRef = 3F0B32CDDCFB440FB013C559 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/camera.cpp */; };
+		A35E4CC5B678485C927C9B98 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/ray.h */ = {isa = PBXBuildFile; fileRef = 341C9B08688B4B5593EBBAF7 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/ray.h */; };
+		A414F085DFE24C7B9D4907DE /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/eqsolver.h */ = {isa = PBXBuildFile; fileRef = D4D0D712363A4D429A758845 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/eqsolver.h */; };
+		A5266AB00CEB42668C8F2407 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/shape.h */ = {isa = PBXBuildFile; fileRef = CF771A2EF117499B87867A4A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/shape.h */; };
+		A7BC93F4CA864A92A33AE8DC /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/scene.h */ = {isa = PBXBuildFile; fileRef = F4DE1599BC574589991DE1CB /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/scene.h */; };
+		AB09D4E1DA2A49B3B1A23D27 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/shape.cpp */ = {isa = PBXBuildFile; fileRef = ACD53C8977A24B229E9DF0B1 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/shape.cpp */; };
+		AD5C01564C3346D19B9B5B20 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/normalshader.h */ = {isa = PBXBuildFile; fileRef = 8C55A7C081B04A3E80BFF6FD /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/normalshader.h */; };
+		ADA18AD7E9E540C995D74E4E /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/matrix4x4.h */ = {isa = PBXBuildFile; fileRef = 322925C8E2574D95AB2712E1 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/matrix4x4.h */; };
+		B09E1ECDB7E64B6CB2ADEF1A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/utils.cpp */ = {isa = PBXBuildFile; fileRef = FD268490202D408D989F54B9 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/utils.cpp */; };
+		B3AA147FA7194D349C234E19 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/scene.cpp */ = {isa = PBXBuildFile; fileRef = 6AC7C4A6A71F4E73A82D46D2 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/scene.cpp */; };
+		B46F1ACB76304AE1833856DA /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/arealightsource.h */ = {isa = PBXBuildFile; fileRef = DDF20C72E5144ACF8920C771 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/arealightsource.h */; };
+		BAA2C6126D95498F8725DEC4 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/whittedintegrator.h */ = {isa = PBXBuildFile; fileRef = 6CB0D36748E944539812348B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/whittedintegrator.h */; };
+		C7B5BD64F46B48A69A66BC2C /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/sphere.cpp */ = {isa = PBXBuildFile; fileRef = BEFCD0B9C0BD4512A6150FB0 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/sphere.cpp */; };
+		C87DB57B996546598322FA54 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/emissive.h */ = {isa = PBXBuildFile; fileRef = 75C97A7538C24AA29DDC79A0 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/emissive.h */; };
+		CDBAA423EE3D4924B1DA0388 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/film.h */ = {isa = PBXBuildFile; fileRef = 1F6EEA65C7984966AFE5797A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/film.h */; };
+		D06E854A4712432784BB4DE3 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/hemisphericalsampler.h */ = {isa = PBXBuildFile; fileRef = B1F80369990F40449C7F0D1E /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/hemisphericalsampler.h */; };
+		D77DDDE53C30454BA2E7431F /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/perspective.cpp */ = {isa = PBXBuildFile; fileRef = 8B2A477102D9432083BF7390 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/perspective.cpp */; };
+		D810866639DA4543AFB5D9A3 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/infiniteplan.cpp */ = {isa = PBXBuildFile; fileRef = A12291CD91CE4139B13D28DD /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/infiniteplan.cpp */; };
+		E287CCDBA1964FADAB39EBCF /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/bitmap.cpp */ = {isa = PBXBuildFile; fileRef = 42DCF926ECE4411BB160D1BA /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/bitmap.cpp */; };
+		E29F1A3F0A844E1EA1FA8076 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/shader.h */ = {isa = PBXBuildFile; fileRef = E6140814A1EC4294B2EC776B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/shader.h */; };
+		ED81B4CEF2AC41D98B47F37E /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/hemisphericalsampler.cpp */ = {isa = PBXBuildFile; fileRef = 2476FA100EB5467394381E22 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/hemisphericalsampler.cpp */; };
+		F25EAD242571472088424C9A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/film.cpp */ = {isa = PBXBuildFile; fileRef = 36087FCFDB5544618100D25C /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/film.cpp */; };
+		F4E0CE8A4E924A7B9215CE1A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/normalshader.cpp */ = {isa = PBXBuildFile; fileRef = 2234BA2C59D5407DB63A4BA8 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/normalshader.cpp */; };
+		F940FE64F6C64D3AAD13E62A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/depthshader.h */ = {isa = PBXBuildFile; fileRef = 0BA0CC7809044328815C682A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/depthshader.h */; };
+		F9CCABE8F7344BF6BD94957D /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/arealightsource.cpp */ = {isa = PBXBuildFile; fileRef = 990737CF23AD432AB914E584 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/arealightsource.cpp */; };
+		FC02071840764516BBA85086 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/perspective.h */ = {isa = PBXBuildFile; fileRef = C16ED84C213A4D25AC290466 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/perspective.h */; };
+		FDF9198200A4415AAF50AEEE /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/intersection.h */ = {isa = PBXBuildFile; fileRef = 3761D23BC3034599938187C6 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/intersection.h */; };
+		FEF3DE6E32354A64B390E7AB /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/matrix4x4.cpp */ = {isa = PBXBuildFile; fileRef = 0EBCB028FAFF4D8B8823338B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/matrix4x4.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		3BB9E0124E7C4E6ABA1E7975 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		9D1AA4B796F345EEBE6F2576 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		AE937D67FC2843CAA9AC2808 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		B19B1EC756A4438A9B327EF7 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		245EA465ABFB456D879B9DBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0FA39560B1C4112A9938087 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3F245FCA68C6460A9ABD5F0;
+			remoteInfo = ACG;
+		};
+		30B3BB7C17E3437BA0D0BDE3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0FA39560B1C4112A9938087 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA232B4BCC257590B213AA49;
+			remoteInfo = ZERO_CHECK;
+		};
+		A89407FAE5A14E3E84FCDE6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0FA39560B1C4112A9938087 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA232B4BCC257590B213AA49;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0BA0CC7809044328815C682A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/depthshader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = depthshader.h; path = src/shaders/depthshader.h; sourceTree = SOURCE_ROOT; };
+		0E3CF30A971A4AECABFB29CD /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/ray.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ray.cpp; path = src/core/ray.cpp; sourceTree = SOURCE_ROOT; };
+		0EBCB028FAFF4D8B8823338B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/matrix4x4.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = matrix4x4.cpp; path = src/core/matrix4x4.cpp; sourceTree = SOURCE_ROOT; };
+		124012E5ABD441F09BD9D32A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/ortographic.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ortographic.h; path = src/cameras/ortographic.h; sourceTree = SOURCE_ROOT; };
+		15551BBB8E6D4726A9EFF33A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/sphere.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = sphere.h; path = src/shapes/sphere.h; sourceTree = SOURCE_ROOT; };
+		1C6BBEA938F1494385E4FB64 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/shader.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = shader.cpp; path = src/shaders/shader.cpp; sourceTree = SOURCE_ROOT; };
+		1F6EEA65C7984966AFE5797A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/film.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = film.h; path = src/core/film.h; sourceTree = SOURCE_ROOT; };
+		2234BA2C59D5407DB63A4BA8 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/normalshader.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = normalshader.cpp; path = src/shaders/normalshader.cpp; sourceTree = SOURCE_ROOT; };
+		2476FA100EB5467394381E22 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/hemisphericalsampler.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = hemisphericalsampler.cpp; path = src/core/hemisphericalsampler.cpp; sourceTree = SOURCE_ROOT; };
+		2A53E7A2E7A64AB6A12F45AA /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/material.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = material.cpp; path = src/materials/material.cpp; sourceTree = SOURCE_ROOT; };
+		2D3EF49C99B84EAC81408EFF /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/ortographic.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ortographic.cpp; path = src/cameras/ortographic.cpp; sourceTree = SOURCE_ROOT; };
+		3085D9CF3C6A44348E7D9107 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/emissive.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = emissive.cpp; path = src/materials/emissive.cpp; sourceTree = SOURCE_ROOT; };
+		322925C8E2574D95AB2712E1 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/matrix4x4.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = matrix4x4.h; path = src/core/matrix4x4.h; sourceTree = SOURCE_ROOT; };
+		341C9B08688B4B5593EBBAF7 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/ray.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ray.h; path = src/core/ray.h; sourceTree = SOURCE_ROOT; };
+		36087FCFDB5544618100D25C /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/film.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = film.cpp; path = src/core/film.cpp; sourceTree = SOURCE_ROOT; };
+		3761D23BC3034599938187C6 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/intersection.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = intersection.h; path = src/core/intersection.h; sourceTree = SOURCE_ROOT; };
+		3CADAB05B0354DA282205730 /* ACG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = ACG; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F0B32CDDCFB440FB013C559 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/camera.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = camera.cpp; path = src/cameras/camera.cpp; sourceTree = SOURCE_ROOT; };
+		42DCF926ECE4411BB160D1BA /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/bitmap.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = bitmap.cpp; path = src/core/bitmap.cpp; sourceTree = SOURCE_ROOT; };
+		43406992B3504AF2AE223D06 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/depthshader.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = depthshader.cpp; path = src/shaders/depthshader.cpp; sourceTree = SOURCE_ROOT; };
+		6AC7C4A6A71F4E73A82D46D2 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/scene.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = scene.cpp; path = src/core/scene.cpp; sourceTree = SOURCE_ROOT; };
+		6CB0D36748E944539812348B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/whittedintegrator.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = whittedintegrator.h; path = src/shaders/whittedintegrator.h; sourceTree = SOURCE_ROOT; };
+		72FC64A5233147D4AF540714 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/pointlightsource.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pointlightsource.h; path = src/lightsources/pointlightsource.h; sourceTree = SOURCE_ROOT; };
+		75C97A7538C24AA29DDC79A0 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/emissive.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = emissive.h; path = src/materials/emissive.h; sourceTree = SOURCE_ROOT; };
+		785EDB590D31435DAC0D0C0B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/phong.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = phong.h; path = src/materials/phong.h; sourceTree = SOURCE_ROOT; };
+		79A710BC10194002868943F0 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/intersection.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = intersection.cpp; path = src/core/intersection.cpp; sourceTree = SOURCE_ROOT; };
+		896C085F5FD8419B87C7FE80 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/square.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = square.cpp; path = src/shapes/square.cpp; sourceTree = SOURCE_ROOT; };
+		8B2A477102D9432083BF7390 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/perspective.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = perspective.cpp; path = src/cameras/perspective.cpp; sourceTree = SOURCE_ROOT; };
+		8C55A7C081B04A3E80BFF6FD /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/normalshader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = normalshader.h; path = src/shaders/normalshader.h; sourceTree = SOURCE_ROOT; };
+		8EE7F1A7EE57485EBD4E46F1 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		990737CF23AD432AB914E584 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/arealightsource.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = arealightsource.cpp; path = src/lightsources/arealightsource.cpp; sourceTree = SOURCE_ROOT; };
+		9DC9245AAD0949929BFA1415 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/material.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = material.h; path = src/materials/material.h; sourceTree = SOURCE_ROOT; };
+		A12291CD91CE4139B13D28DD /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/infiniteplan.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = infiniteplan.cpp; path = src/shapes/infiniteplan.cpp; sourceTree = SOURCE_ROOT; };
+		A4050DACD208457285AFAF63 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/eqsolver.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = eqsolver.cpp; path = src/core/eqsolver.cpp; sourceTree = SOURCE_ROOT; };
+		A9F3034096F8455391D932C9 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/tinyexr.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = tinyexr.h; path = src/core/tinyexr.h; sourceTree = SOURCE_ROOT; };
+		AA4399CCCF67477F89BEC0B6 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/utils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = utils.h; path = src/core/utils.h; sourceTree = SOURCE_ROOT; };
+		AAC7C654F79A441DB29C2197 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
+		ACD53C8977A24B229E9DF0B1 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/shape.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = shape.cpp; path = src/shapes/shape.cpp; sourceTree = SOURCE_ROOT; };
+		B0BF4B4F2911407AA0FCF801 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/infiniteplan.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = infiniteplan.h; path = src/shapes/infiniteplan.h; sourceTree = SOURCE_ROOT; };
+		B1F80369990F40449C7F0D1E /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/hemisphericalsampler.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = hemisphericalsampler.h; path = src/core/hemisphericalsampler.h; sourceTree = SOURCE_ROOT; };
+		B52235C81D68444B9AADB0DE /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/square.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = square.h; path = src/shapes/square.h; sourceTree = SOURCE_ROOT; };
+		BB08D74653BC445D8490E277 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/vector3d.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = vector3d.cpp; path = src/core/vector3d.cpp; sourceTree = SOURCE_ROOT; };
+		BD918AB8CCC74A0FAF155004 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/whittedintegrator.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = whittedintegrator.cpp; path = src/shaders/whittedintegrator.cpp; sourceTree = SOURCE_ROOT; };
+		BEFCD0B9C0BD4512A6150FB0 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/sphere.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = sphere.cpp; path = src/shapes/sphere.cpp; sourceTree = SOURCE_ROOT; };
+		C16ED84C213A4D25AC290466 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/perspective.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = perspective.h; path = src/cameras/perspective.h; sourceTree = SOURCE_ROOT; };
+		C6622D03972245DCAC196C8F /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/bitmap.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = bitmap.h; path = src/core/bitmap.h; sourceTree = SOURCE_ROOT; };
+		C6B9DBAB1DC44A71912C5BD1 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		CF771A2EF117499B87867A4A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/shape.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = shape.h; path = src/shapes/shape.h; sourceTree = SOURCE_ROOT; };
+		D23D5E86B5B14942ACE77973 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/lightsource.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = lightsource.h; path = src/lightsources/lightsource.h; sourceTree = SOURCE_ROOT; };
+		D39E5B93892C4602B308695C /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/intersectionshader.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = intersectionshader.cpp; path = src/shaders/intersectionshader.cpp; sourceTree = SOURCE_ROOT; };
+		D4D0D712363A4D429A758845 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/eqsolver.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = eqsolver.h; path = src/core/eqsolver.h; sourceTree = SOURCE_ROOT; };
+		D910CBE2151D4695B17587BB /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/intersectionshader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = intersectionshader.h; path = src/shaders/intersectionshader.h; sourceTree = SOURCE_ROOT; };
+		D94467BF4E02497D99D7162B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/vector3d.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = vector3d.h; path = src/core/vector3d.h; sourceTree = SOURCE_ROOT; };
+		DDF20C72E5144ACF8920C771 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/arealightsource.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = arealightsource.h; path = src/lightsources/arealightsource.h; sourceTree = SOURCE_ROOT; };
+		E6140814A1EC4294B2EC776B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/shader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = shader.h; path = src/shaders/shader.h; sourceTree = SOURCE_ROOT; };
+		ECF894FDAB0347C3B1554F28 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/camera.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = camera.h; path = src/cameras/camera.h; sourceTree = SOURCE_ROOT; };
+		F4DE1599BC574589991DE1CB /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/scene.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = scene.h; path = src/core/scene.h; sourceTree = SOURCE_ROOT; };
+		F4FC80623425443A84BD599B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/phong.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = phong.cpp; path = src/materials/phong.cpp; sourceTree = SOURCE_ROOT; };
+		FD268490202D408D989F54B9 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/utils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = utils.cpp; path = src/core/utils.cpp; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA798D03B2664FCF8C3F3716 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1E1917BE34F34532AB25C0B6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		3B3F13A9ECB9464486EFF792 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3CADAB05B0354DA282205730 /* ACG */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5368E2F6C818444896A3E7D9 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				9BE3B314F07443A99F6DEBB9 /* CMake Rules */,
+				C6B9DBAB1DC44A71912C5BD1 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		75C8F9E383884215B38ADE15 = {
+			isa = PBXGroup;
+			children = (
+				DD698E05190A47AC91E7AADA /* ACG */,
+				5368E2F6C818444896A3E7D9 /* ALL_BUILD */,
+				3B3F13A9ECB9464486EFF792 /* Products */,
+				DD51292D68FD48D59B2F4C4F /* Frameworks */,
+				1E1917BE34F34532AB25C0B6 /* Resources */,
+			);
+			sourceTree = "<group>";
+		};
+		9BE3B314F07443A99F6DEBB9 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		CEB20F59DA594298AFEA407D /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F0B32CDDCFB440FB013C559 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/camera.cpp */,
+				2D3EF49C99B84EAC81408EFF /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/ortographic.cpp */,
+				8B2A477102D9432083BF7390 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/perspective.cpp */,
+				42DCF926ECE4411BB160D1BA /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/bitmap.cpp */,
+				A4050DACD208457285AFAF63 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/eqsolver.cpp */,
+				36087FCFDB5544618100D25C /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/film.cpp */,
+				2476FA100EB5467394381E22 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/hemisphericalsampler.cpp */,
+				79A710BC10194002868943F0 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/intersection.cpp */,
+				0EBCB028FAFF4D8B8823338B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/matrix4x4.cpp */,
+				0E3CF30A971A4AECABFB29CD /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/ray.cpp */,
+				6AC7C4A6A71F4E73A82D46D2 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/scene.cpp */,
+				FD268490202D408D989F54B9 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/utils.cpp */,
+				BB08D74653BC445D8490E277 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/vector3d.cpp */,
+				990737CF23AD432AB914E584 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/arealightsource.cpp */,
+				AAC7C654F79A441DB29C2197 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/main.cpp */,
+				3085D9CF3C6A44348E7D9107 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/emissive.cpp */,
+				2A53E7A2E7A64AB6A12F45AA /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/material.cpp */,
+				F4FC80623425443A84BD599B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/phong.cpp */,
+				43406992B3504AF2AE223D06 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/depthshader.cpp */,
+				D39E5B93892C4602B308695C /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/intersectionshader.cpp */,
+				2234BA2C59D5407DB63A4BA8 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/normalshader.cpp */,
+				1C6BBEA938F1494385E4FB64 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/shader.cpp */,
+				BD918AB8CCC74A0FAF155004 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/whittedintegrator.cpp */,
+				A12291CD91CE4139B13D28DD /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/infiniteplan.cpp */,
+				ACD53C8977A24B229E9DF0B1 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/shape.cpp */,
+				BEFCD0B9C0BD4512A6150FB0 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/sphere.cpp */,
+				896C085F5FD8419B87C7FE80 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/square.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		DD51292D68FD48D59B2F4C4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD698E05190A47AC91E7AADA /* ACG */ = {
+			isa = PBXGroup;
+			children = (
+				CEB20F59DA594298AFEA407D /* Source Files */,
+				E2129DD129F64EBEB99AB3BB /* Header Files */,
+				8EE7F1A7EE57485EBD4E46F1 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/CMakeLists.txt */,
+			);
+			name = ACG;
+			sourceTree = "<group>";
+		};
+		E2129DD129F64EBEB99AB3BB /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECF894FDAB0347C3B1554F28 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/camera.h */,
+				124012E5ABD441F09BD9D32A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/ortographic.h */,
+				C16ED84C213A4D25AC290466 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/perspective.h */,
+				C6622D03972245DCAC196C8F /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/bitmap.h */,
+				D4D0D712363A4D429A758845 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/eqsolver.h */,
+				1F6EEA65C7984966AFE5797A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/film.h */,
+				B1F80369990F40449C7F0D1E /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/hemisphericalsampler.h */,
+				3761D23BC3034599938187C6 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/intersection.h */,
+				322925C8E2574D95AB2712E1 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/matrix4x4.h */,
+				341C9B08688B4B5593EBBAF7 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/ray.h */,
+				F4DE1599BC574589991DE1CB /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/scene.h */,
+				A9F3034096F8455391D932C9 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/tinyexr.h */,
+				AA4399CCCF67477F89BEC0B6 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/utils.h */,
+				D94467BF4E02497D99D7162B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/vector3d.h */,
+				DDF20C72E5144ACF8920C771 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/arealightsource.h */,
+				D23D5E86B5B14942ACE77973 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/lightsource.h */,
+				72FC64A5233147D4AF540714 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/pointlightsource.h */,
+				75C97A7538C24AA29DDC79A0 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/emissive.h */,
+				9DC9245AAD0949929BFA1415 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/material.h */,
+				785EDB590D31435DAC0D0C0B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/phong.h */,
+				0BA0CC7809044328815C682A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/depthshader.h */,
+				D910CBE2151D4695B17587BB /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/intersectionshader.h */,
+				8C55A7C081B04A3E80BFF6FD /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/normalshader.h */,
+				E6140814A1EC4294B2EC776B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/shader.h */,
+				6CB0D36748E944539812348B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/whittedintegrator.h */,
+				B0BF4B4F2911407AA0FCF801 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/infiniteplan.h */,
+				CF771A2EF117499B87867A4A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/shape.h */,
+				15551BBB8E6D4726A9EFF33A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/sphere.h */,
+				B52235C81D68444B9AADB0DE /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/square.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C3F245FCA68C6460A9ABD5F0 /* ACG */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C71977F8B49436E88F48909 /* Build configuration list for PBXNativeTarget "ACG" */;
+			buildPhases = (
+				8CADB6D63E76465AADB1412F /* Sources */,
+				CA798D03B2664FCF8C3F3716 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				19FDDC3A956A4848BD6688F6 /* PBXTargetDependency */,
+			);
+			name = ACG;
+			productName = ACG;
+			productReference = 3CADAB05B0354DA282205730 /* ACG */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C0FA39560B1C4112A9938087 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2600;
+			};
+			buildConfigurationList = B2447791DD6B467DBF2A54DB /* Build configuration list for PBXProject "ACG" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				9D1AA4B796F345EEBE6F2576 /* Debug */,
+				3BB9E0124E7C4E6ABA1E7975 /* Release */,
+				AE937D67FC2843CAA9AC2808 /* MinSizeRel */,
+				B19B1EC756A4438A9B327EF7 /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = 75C8F9E383884215B38ADE15;
+			projectDirPath = /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing;
+			projectRoot = "";
+			targets = (
+				AE24D8259A3ECC932A9FCF62 /* ALL_BUILD */,
+				C3F245FCA68C6460A9ABD5F0 /* ACG */,
+				BA232B4BCC257590B213AA49 /* ZERO_CHECK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C0110FC8322DE7E50886E21 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		3D906E4599EE68C00A80D24F /* Generate CMakeFiles/ZERO_CHECK */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ZERO_CHECK";
+			outputPaths = (
+/Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/CMakeFiles/ZERO_CHECK			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build
+  make -f /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build
+  make -f /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build
+  make -f /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build
+  make -f /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/CMakeScripts/ReRunCMake.make
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		789DD0998114BFC2D91C2DE9 /* Generate CMakeFiles/ALL_BUILD */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ALL_BUILD";
+			outputPaths = (
+/Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/CMakeFiles/ALL_BUILD			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build
+  echo Build\\ all\\ projects
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		9B50530E35CC49C82C2FACCF = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8CADB6D63E76465AADB1412F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A18246B62A2C4DAF957DD6DC /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/camera.cpp */,
+				51E109F17777443889465B6D /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/ortographic.cpp */,
+				D77DDDE53C30454BA2E7431F /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/cameras/perspective.cpp */,
+				E287CCDBA1964FADAB39EBCF /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/bitmap.cpp */,
+				9595170FA5024FFC8C2DC91B /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/eqsolver.cpp */,
+				F25EAD242571472088424C9A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/film.cpp */,
+				ED81B4CEF2AC41D98B47F37E /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/hemisphericalsampler.cpp */,
+				1560E5EE80A34F0AA4E5F0EB /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/intersection.cpp */,
+				FEF3DE6E32354A64B390E7AB /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/matrix4x4.cpp */,
+				68EB593321F44DBDA0E1783C /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/ray.cpp */,
+				B3AA147FA7194D349C234E19 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/scene.cpp */,
+				B09E1ECDB7E64B6CB2ADEF1A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/utils.cpp */,
+				77BCDB85442E4EF1A3EF4B46 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/core/vector3d.cpp */,
+				F9CCABE8F7344BF6BD94957D /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/lightsources/arealightsource.cpp */,
+				823F3065A54A477EBF946AA4 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/main.cpp */,
+				6B1706C5B02541AFB6C6B708 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/emissive.cpp */,
+				35ECC0EEAD934771A83B0525 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/material.cpp */,
+				099E28350DE74CD99E06A030 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/materials/phong.cpp */,
+				15C412A5894446A3A927E927 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/depthshader.cpp */,
+				201244D4258847C1A424E91F /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/intersectionshader.cpp */,
+				F4E0CE8A4E924A7B9215CE1A /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/normalshader.cpp */,
+				0D0EA160C10D42DDB25E10F6 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/shader.cpp */,
+				09425D126F4D4563B3CB2743 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/whittedintegrator.cpp */,
+				D810866639DA4543AFB5D9A3 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/infiniteplan.cpp */,
+				AB09D4E1DA2A49B3B1A23D27 /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/shape.cpp */,
+				C7B5BD64F46B48A69A66BC2C /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/sphere.cpp */,
+				98E373562FB34E939DEDBA1C /* /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shapes/square.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		19FDDC3A956A4848BD6688F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA232B4BCC257590B213AA49 /* ZERO_CHECK */;
+			targetProxy = A89407FAE5A14E3E84FCDE6A /* PBXContainerItemProxy */;
+		};
+		5AC20784AE13489CBABB1D89 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3F245FCA68C6460A9ABD5F0 /* ACG */;
+			targetProxy = 245EA465ABFB456D879B9DBA /* PBXContainerItemProxy */;
+		};
+		64268369DA04434CB30D2104 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA232B4BCC257590B213AA49 /* ZERO_CHECK */;
+			targetProxy = 30B3BB7C17E3437BA0D0BDE3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		07AA254EAD634E0F9872C57A /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		1128B7F5680443338D5CBB39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/Debug;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src,"$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++20' ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ACG;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/build/ACG.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		133AA9BB63BF421A990CFBF0 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/MinSizeRel;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src,"$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++20' ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ACG;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/build/ACG.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		3CCC176759F144BF97494DA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = "";
+				SYMROOT = /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/build;
+			};
+			name = Debug;
+		};
+		440D55A229AC4C5FAE83B033 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		4B8BA4AB266840B79B2B06B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		5803CDB6E28C472E9B688886 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = "";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/build;
+			};
+			name = Release;
+		};
+		5FE70754809F4453A543FA25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		739D393E4C8F4273AE2ECE8D /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		858A922AABED44FC98C4C5FB /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		9E59E5248C3F4EE2BCDBE93F /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = "";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/build;
+			};
+			name = RelWithDebInfo;
+		};
+		A6ACC83AE9E141019EF86DFE /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/RelWithDebInfo;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src,"$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++20' ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ACG;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/build/ACG.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		B9D12D1E27EE4A4188DD2B36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		BB22C35C285346B796B007B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/Release;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src,"$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++20' ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ACG;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/build/ACG.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		DA36D9E900EA4BF38463913F /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		F3715292B4D04A04AFFBB172 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				SDKROOT = "";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/build/build;
+			};
+			name = MinSizeRel;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C71977F8B49436E88F48909 /* Build configuration list for PBXNativeTarget "ACG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1128B7F5680443338D5CBB39 /* Debug */,
+				BB22C35C285346B796B007B6 /* Release */,
+				133AA9BB63BF421A990CFBF0 /* MinSizeRel */,
+				A6ACC83AE9E141019EF86DFE /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4318567B115C4B078CA34BC8 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				440D55A229AC4C5FAE83B033 /* Debug */,
+				4B8BA4AB266840B79B2B06B2 /* Release */,
+				07AA254EAD634E0F9872C57A /* MinSizeRel */,
+				739D393E4C8F4273AE2ECE8D /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		705206B9DA654CD99B3240C7 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FE70754809F4453A543FA25 /* Debug */,
+				B9D12D1E27EE4A4188DD2B36 /* Release */,
+				DA36D9E900EA4BF38463913F /* MinSizeRel */,
+				858A922AABED44FC98C4C5FB /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B2447791DD6B467DBF2A54DB /* Build configuration list for PBXProject "ACG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CCC176759F144BF97494DA2 /* Debug */,
+				5803CDB6E28C472E9B688886 /* Release */,
+				F3715292B4D04A04AFFBB172 /* MinSizeRel */,
+				9E59E5248C3F4EE2BCDBE93F /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C0FA39560B1C4112A9938087 /* Project object */;
+}

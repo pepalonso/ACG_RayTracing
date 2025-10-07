@@ -1,0 +1,22 @@
+dependencies: \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/intersectionshader.cpp \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/intersectionshader.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/shader.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../core/ray.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../core/vector3d.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../lightsources/pointlightsource.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../lightsources/../core/vector3d.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../lightsources/lightsource.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../lightsources/arealightsource.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../lightsources/../shapes/square.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../lightsources/../shapes/shape.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../lightsources/../shapes/../core/matrix4x4.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../lightsources/../shapes/../core/vector3d.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../lightsources/../shapes/../core/ray.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../lightsources/../shapes/../materials/material.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../lightsources/../shapes/../materials/../core/vector3d.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../lightsources/../shapes/../core/intersection.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../lightsources/../shapes/../core/eqsolver.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../shapes/shape.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../core/utils.h \
+  /Users/alexandre/Documents/Advanced_Computer_Graphics/ACG_RayTracing/src/shaders/../core/../shapes/shape.h
