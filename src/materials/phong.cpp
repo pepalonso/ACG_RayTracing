@@ -1,6 +1,11 @@
 #include "phong.h"
 
 #include <iostream>
+#include <cmath>
+
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 
 Phong::Phong()
 { }
@@ -11,22 +16,25 @@ rho_d(Kd_), Ks(Ks_), alpha(alpha_){}
 
 Vector3D Phong::getReflectance(const Vector3D& n, const Vector3D& wo,
     const Vector3D& wi) const {
-    //FILL(...)
-        // 1) Normalize inputs so dot products are true cosines
-        Vector3D N  = n;  N.normalized();
-        Vector3D Wi = wi; Wi.normalized();   // incoming light dir (point -> light)
-        Vector3D Wo = wo; Wo.normalized();   // outgoing/view dir (point -> camera)
-        // 2) Lambertian diffuse: (ρ_d / π) * max(0, n · wi)
-        double ndotwi = std::max(0.0, dot(N,Wi));//max(0,.) kills light coming from behind
-        Vector3D diffuse = rho_d * (ndotwi / M_PI);
-        // 3) Ideal mirror reflection direction: ω_r = 2 (n · wi) n − wi
-        Vector3D Wr = (2.0 * dot(N,Wi)) * N - Wi;
-        Wr.normalized();
-        // 4) Phong specular lobe: k_s * (max(0, ω_o · ω_r))^α
-        double rdotwo = std::max(0.0, dot(Wr,Wo));
-        Vector3D specular = Ks * std::pow(rdotwo, alpha);
-        // 5) Total BRDF value
-        return diffuse + specular;
+    //   - n is the surface normal
+    //   - ω_i is the incident light direction (towards the light)
+    //   - ω_o is the outgoing view direction (towards the camera)
+    //   - ω_r is the ideal reflection direction
+    
+    // Lambertian diffuse term: ρ_d / π
+    Vector3D diffuse = rho_d / M_PI;
+    
+    // Ideal mirror reflection direction: ω_r = 2(n · ω_i)n - ω_i  [Equation 5]
+    Vector3D wr = (2.0 * dot(n, wi)) * n - wi;
+    wr = wr.normalized();
+    
+    // Phong specular lobe: k_s * (ω_o · ω_r)^α
+    // Note: max(0, .) ensures no contribution when viewing from behind the reflection
+    double wo_dot_wr = std::max(0.0, dot(wo, wr));
+    Vector3D specular = Ks * std::pow(wo_dot_wr, alpha);
+    
+    // Total BRDF: diffuse + specular components
+    return diffuse + specular;
 };
 
 

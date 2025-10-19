@@ -5,6 +5,7 @@
 #include <stdint.h>
 #include <algorithm>
 #include <string>
+#include <cmath>
 
 BitMap::BitMap()
 {
@@ -125,14 +126,29 @@ int BitMap::save(Vector3D** &data, const size_t &width, const size_t &height)
 
     if(outputFile.is_open())
     {
+        std::cout << "Writing BMP headers..." << std::endl;
         // Write the file header
-        outputFile.write(fileHeader.toCharBlock(), 14);
+        char* fileHeaderBlock = fileHeader.toCharBlock();
+        outputFile.write(fileHeaderBlock, 14);
+        free(fileHeaderBlock);
+        std::cout << "File header written" << std::endl;
 
         // Write the info header
-        outputFile.write(infoHeader.toCharBlock(), 40);
+        char* infoHeaderBlock = infoHeader.toCharBlock();
+        outputFile.write(infoHeaderBlock, 40);
+        free(infoHeaderBlock);
+        std::cout << "Info header written" << std::endl;
 
         int extra_bytes = (4 - (infoHeader.width * 3) % 4) % 4;
-        void* padd = (void*)malloc(extra_bytes);
+        void* padd = nullptr;
+        if (extra_bytes > 0) {
+            padd = (void*)malloc(extra_bytes);
+            if (padd == nullptr) {
+                std::cout << "Error: Failed to allocate memory for padding" << std::endl;
+                outputFile.close();
+                return 1;
+            }
+        }
 
         // Store the image in the BMP format (bottom-up, i.e.,
         //  first row stores is the lowermost one)
@@ -153,10 +169,26 @@ int BitMap::save(Vector3D** &data, const size_t &width, const size_t &height)
 
             }
             // Padd the rest of the row;
-            outputFile.write(reinterpret_cast<const char *>(padd), extra_bytes);
+            if (extra_bytes > 0 && padd != nullptr) {
+                outputFile.write(reinterpret_cast<const char *>(padd), extra_bytes);
+            }
         }
 
+        std::cout << "Pixel data written" << std::endl;
+        
+        // Free padding first
+        if (padd != nullptr) {
+            std::cout << "Freeing padding..." << std::endl;
+            free(padd);
+            std::cout << "Padding freed" << std::endl;
+        }
+        
+        std::cout << "Flushing file..." << std::endl;
+        outputFile.flush();
+        std::cout << "Closing file..." << std::endl;
         outputFile.close();
+        std::cout << "File closed" << std::endl;
+        std::cout << "BMP save returning successfully" << std::endl;
         return 0;
     }
     else

@@ -1,5 +1,6 @@
 #include "depthshader.h"
 
+#include <algorithm>
 #include "core/utils.h"
 
 DepthShader::DepthShader() :

@@ -24,64 +24,127 @@ Vector3D WhittedIntegrator::computeColorRecursive(
     const std::vector<LightSource*> &lsList,
     int depth) const
 {
-    // 0) recursion stop
+    
+    // Step 0: Check recursion depth limit
     if (depth > maxDepth)
         return bgColor;
 
-    // 1) intersect with scene
+    // Step 1: Find closest intersection with scene geometry
     Intersection its;
     if (!Utils::getClosestIntersection(r, objList, its))
-        return bgColor;
+        return bgColor;  // Ray escaped scene, return background color
 
-    // 2) local shading frame
-    const Vector3D x  = its.itsPoint;
-    const Vector3D n  = its.normal.normalized();
-    const Vector3D wo = (-r.d).normalized();
+    // Step 2: Setup local shading frame at intersection point
+    const Vector3D x  = its.itsPoint;           // Surface point x
+    const Vector3D n  = its.normal.normalized(); // Surface normal n_x
+    const Vector3D wo = (-r.d).normalized();     // Outgoing direction ω_o (towards camera)
 
     const Material& mat = its.shape->getMaterial();
 
-    // 3) ambient + emissive
-    Vector3D Lo(0.0f);
+    // Step 3: Initialize outgoing radiance with ambient and emissive terms
+    Vector3D Lo(0.0f);  // L_o(x, ω_o) - outgoing radiance
+    
     if (mat.hasDiffuseOrGlossy())
-        Lo += mat.getDiffuseReflectance() * ambientTerm;
+        Lo += mat.getDiffuseReflectance() * ambientTerm;  // Ambient: ρ_d * k_a
     if (mat.isEmissive())
-        Lo += mat.getEmissiveRadiance();
+        Lo += mat.getEmissiveRadiance();  // Self-emitted light
 
-    // 4) direct illumination from (sampled) point/area lights
-    for (const LightSource* L : lsList)
+    // Step 4: Direct Illumination from Point Lights (only for diffuse/glossy materials)
+    if (mat.hasDiffuseOrGlossy())
     {
-        // For point lights this will be constant; for area lights you could stratify/sample multiple times.
-        const Vector3D lp = L->sampleLightPosition();
-        Vector3D Li       = L->getIntensity();
+        for (const LightSource* L : lsList)  // Loop over nL light sources
+        {
+            // Sample light position (for point lights: single position; area lights: random sample)
+            const Vector3D lightPos = L->sampleLightPosition();
+            Vector3D Li = L->getIntensity();
 
-        Vector3D wi = lp - x;
-        const double dist2 = wi.lengthSq();
-        if (dist2 <= 0.0) continue;
-        const double dist = std::sqrt(dist2);
-        wi /= dist;
+            // Compute incident direction ω_i^s: from shading point x to light position
+            Vector3D wi = lightPos - x;
+            const double dist2 = wi.lengthSq();
+            if (dist2 <= 0.0) continue;
+            const double dist = std::sqrt(dist2);
+            wi /= dist;
 
-        // Optional inverse-square falloff (keep if getIntensity() is radiant intensity)
-        Li = Li / dist2;
+            // Apply inverse-square falloff: intensity decreases with distance²
+            Li = Li / dist2;
 
-        // Shadow ray: rely on maxT to clip beyond the light (no occ.t available)
-        Ray shadowRay(x + n * (float)Epsilon, wi);
-        shadowRay.minT = Epsilon;
-        shadowRay.maxT = dist - Epsilon;
+            // V_s(x) = 1 if light s is visible from x, 0 otherwise
+            Ray shadowRay(x + n * (float)Epsilon, wi);  // Offset by epsilon to avoid self-intersection
+            shadowRay.minT = Epsilon;
+            shadowRay.maxT = dist - Epsilon;  // Stop at light position
 
-        Intersection occ;
-        const bool blocked = Utils::getClosestIntersection(shadowRay, objList, occ);
-        if (blocked)
-            continue; // Vs(x)=0
+            Intersection occ;
+            const bool blocked = Utils::getClosestIntersection(shadowRay, objList, occ);
+            if (blocked)
+                continue;  // V_s(x) = 0: light is occluded, skip this light source
 
-        // BRDF evaluation (Phong/diffuse handled inside the material)
-        const Vector3D fr = mat.getReflectance(n, wo, wi);
+            // V_s(x) = 1: light is visible, compute contribution
+            
+            // Evaluate BRDF: f_r(n_x, ω_i^s, ω_o) using Phong model
+            const Vector3D fr = mat.getReflectance(n, wo, wi);
 
-        // Add contribution: Li * fr * max(0, n·wi)
-        const double nDotWi = std::max(0.0, dot(n, wi));
-        Lo += Li * fr * nDotWi;
+            // Compute cosine term: (ω_i · n_x)
+            // Ensures no contribution from light coming from behind the surface
+            const double wi_dot_n = std::max(0.0, dot(wi, n));
+
+            // Add contribution from this light source
+            Lo += Li * fr * wi_dot_n;  // V_s(x)=1 implied (not blocked)
+        }
     }
 
-    // 5) (optional) recursive mirror/refraction can be added later using hasSpecular()/hasTransmission()
+    // Step 5: Perfect Specular Reflection (Mirror materials)
+    if (mat.hasSpecular())
+    {
+        // Compute ideal reflection direction: ω_r = 2(n · ω_o)n - ω_o
+        Vector3D wr = 2.0 * dot(n, wo) * n - wo;
+        wr = wr.normalized();
 
-    return Lo;
+        // Create reflected ray from surface point in direction ω_r
+        Ray reflectedRay(x + n * (float)Epsilon, wr, depth + 1);
+        
+        // Recursively trace reflected ray
+        Vector3D reflectedRadiance = computeColorRecursive(reflectedRay, objList, lsList, depth + 1);
+        
+        // Add reflected contribution weighted by mirror's reflectance
+        Lo += reflectedRadiance * mat.getDiffuseReflectance();
+    }
+
+    // Step 6: Perfect Specular Transmission (Refractive materials)
+    if (mat.hasTransmission())
+    {
+        // Determine if ray is entering or exiting the material
+        double n_dot_wo = dot(n, wo);
+        bool entering = n_dot_wo > 0;
+        
+        // Get refractive index ratio μ_t = η₁/η₂
+        double mu_t = mat.getIndexOfRefraction();
+        
+        // Flip normal and mu if exiting (going from denser to less dense medium)
+        Vector3D n_refr = entering ? n : -n;
+        double mu = entering ? mu_t : 1.0 / mu_t;
+        double cos_theta = std::abs(n_dot_wo);
+        
+        // Check for total internal reflection using radicand from Equation 8
+        double radicand = 1.0 - mu * mu * (1.0 - cos_theta * cos_theta);
+        
+        if (radicand >= 0.0)  // No total internal reflection
+        {
+            // Compute transmission direction: ω_t = -μ·ω_o + n(μ(n·ω_o) - √radicand) [Eq. 8]
+            double sqrt_term = std::sqrt(radicand);
+            Vector3D wt = -mu * wo + n_refr * (mu * cos_theta - sqrt_term);
+            wt = wt.normalized();
+            
+            // Create transmitted ray (offset in opposite direction of normal)
+            Ray transmittedRay(x - n_refr * (float)Epsilon, wt, depth + 1);
+            
+            // Recursively trace transmitted ray
+            Vector3D transmittedRadiance = computeColorRecursive(transmittedRay, objList, lsList, depth + 1);
+            
+            // Add transmitted contribution (no color filtering for pure glass)
+            Lo += transmittedRadiance;
+        }
+        // If radicand < 0: total internal reflection occurs, no transmission
+    }
+
+    return Lo;  // Return total outgoing radiance L_o(x, ω_o)
 }

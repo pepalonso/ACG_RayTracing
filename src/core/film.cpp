@@ -1,10 +1,11 @@
 #include "film.h"
 
-#define TINYEXR_IMPLEMENTATION
-#include "tinyexr.h"
-
+#include <cmath>
 #include <iostream>
 #include <vector>
+
+#define TINYEXR_IMPLEMENTATION
+#include "tinyexr.h"
 
 /**
  * @brief Film::Film

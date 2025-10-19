@@ -21,12 +21,13 @@ public:
         if (square_dim.x <= Epsilon) {
             return square_dim.y * square_dim.z;
         }
-        if (square_dim.y <= Epsilon) {
+        else if (square_dim.y <= Epsilon) {
             return square_dim.x * square_dim.z;
         }
-        if (square_dim.z <= Epsilon) {
+        else if (square_dim.z <= Epsilon) {
             return square_dim.x * square_dim.y;
         }
+        return 0.0; // fallback return value
     }
 
     Vector3D getNormal() const {

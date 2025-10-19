@@ -1,4 +1,5 @@
 #include "perspective.h"
+#include <cmath>
 
 PerspectiveCamera::PerspectiveCamera(const Matrix4x4 &cameraToWorld_, const double fov_,
                 const Film &film_ )

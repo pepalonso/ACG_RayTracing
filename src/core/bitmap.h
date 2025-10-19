@@ -1,6 +1,7 @@
 #ifndef BITMAP_H
 #define BITMAP_H
 
+#include <cstring>
 #include "vector3d.h"
 //#include <iostream>
 
