@@ -28,10 +28,10 @@ Vector3D Phong::getReflectance(const Vector3D& n, const Vector3D& wo,
     Vector3D wr = (2.0 * dot(n, wi)) * n - wi;
     wr = wr.normalized();
     
-    // Phong specular lobe: k_s * (ω_o · ω_r)^α
+    // Phong specular lobe with energy conservation: ((α + 2) / (2π)) * k_s * (ω_o · ω_r)^α
     // Note: max(0, .) ensures no contribution when viewing from behind the reflection
     double wo_dot_wr = std::max(0.0, dot(wo, wr));
-    Vector3D specular = Ks * std::pow(wo_dot_wr, alpha);
+    Vector3D specular = ((alpha + 2.0) / (2.0 * M_PI)) * Ks * std::pow(wo_dot_wr, alpha);
     
     // Total BRDF: diffuse + specular components
     return diffuse + specular;

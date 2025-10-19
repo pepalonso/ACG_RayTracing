@@ -1,2 +1,12 @@
+# Build directory
 build/
+
+# Generated output files
+output.bmp
+output.exr
+
+# Executable
+ACG
+
+# Cache files
 .cache/
