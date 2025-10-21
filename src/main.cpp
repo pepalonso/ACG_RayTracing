@@ -18,6 +18,7 @@
 #include "shaders/depthshader.h"
 #include "shaders/normalshader.h"
 #include "shaders/whittedintegrator.h"
+#include "shaders/areadirectintegrator.h"
 
 
 #include "materials/phong.h"
@@ -57,6 +58,9 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     Material* mirror = new Mirror(Vector3D(1.0, 1.0, 1.0));  // Perfect white mirror
     //Task 5.4
     Material* transmissive = new Transmissive(0.7);
+    
+    // Area light material - emissive square
+    Material* areaLight = new Emissive(Vector3D(5.0, 5.0, 5.0), Vector3D(0.0, 0.0, 0.0));
 
 
     /* ******* */
@@ -89,13 +93,14 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     Shape* s2 = new Sphere(radius, sphereTransform2, transmissive);
 
     Shape* square = new Square(Vector3D(offset + 0.999, -offset-0.2, 3.0), Vector3D(0.0, 4.0, 0.0), Vector3D(0.0, 0.0, 2.0), Vector3D(-1.0, 0.0, 0.0), mirror);
+    
+    // Area light - emissive square on the ceiling
+    Shape* lightSquare = new Square(Vector3D(0, offset-0.1, 3.0), Vector3D(1.0, 0.0, 0.0), Vector3D(0.0, 0.0, 1.0), Vector3D(0.0, -1.0, 0.0), areaLight);
 
     myScene.AddObject(s1);
     myScene.AddObject(s2);
     myScene.AddObject(square);
-
-    PointLightSource* myPointLight = new PointLightSource(Vector3D(0, 2.5, 3.0), Vector3D(20.0));
-    myScene.AddPointLight(myPointLight);
+    myScene.AddObject(lightSquare);
 
 }
 
@@ -228,6 +233,7 @@ int main()
     Shader *depthshader = new DepthShader (intersectionColor,7.5f, bgColor);
     Shader *normalshader = new NormalShader(bgColor);
     Shader *whittedshader = new WhittedIntegrator(bgColor,5, 0.15f);
+    Shader *areadirectshader = new AreaDirectIntegrator(bgColor, 64); // 64 samples per pixel
     //(... normal, whitted) ...
 
   
@@ -248,7 +254,7 @@ int main()
 
     // Launch some rays! TASK 2,3,...   
     auto start = high_resolution_clock::now();
-    raytrace(cam, whittedshader, film, myScene.objectsList, myScene.LightSourceList);
+    raytrace(cam, areadirectshader, film, myScene.objectsList, myScene.LightSourceList);
     auto stop = high_resolution_clock::now();
 
     

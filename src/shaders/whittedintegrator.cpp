@@ -2,10 +2,6 @@
 
 #include "../core/utils.h"
 
-// WhittedIntegrator::WhittedIntegrator() :
-//     color(Vector3D(1, 0, 0))
-// { }
-
 WhittedIntegrator::WhittedIntegrator(Vector3D& bgColor, int maxDepth_, float ambientTerm_) :
     Shader(bgColor), maxDepth(maxDepth_), ambientTerm(ambientTerm_)
 { }
@@ -69,7 +65,7 @@ Vector3D WhittedIntegrator::computeColorRecursive(
             Li = Li / dist2;
 
             // V_s(x) = 1 if light s is visible from x, 0 otherwise
-            Ray shadowRay(x + n * (float)Epsilon, wi);  // Offset by epsilon to avoid self-intersection
+            Ray shadowRay(x, wi);  // Offset by epsilon to avoid self-intersection
             shadowRay.minT = Epsilon;
             shadowRay.maxT = dist - Epsilon;  // Stop at light position
 
