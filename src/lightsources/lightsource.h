@@ -1,6 +1,7 @@
 #ifndef LIGHTSOURCE_H
 #define LIGHTSOURCE_H
 
+#include "../core/vector3d.h"
 
 // To start, let this be the interface of a point light source
 // Then, make this an abstract class from which we can derive:
@@ -14,7 +15,7 @@ public:
 
 
     virtual Vector3D getIntensity() const = 0;
-    virtual Vector3D sampleLightPosition() const = 0;
+    virtual Vector3D generateRandomPoint() const = 0;
 
     virtual double getArea() const = 0;
     virtual Vector3D getNormal() const = 0;

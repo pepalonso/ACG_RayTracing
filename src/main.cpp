@@ -19,6 +19,7 @@
 #include "shaders/normalshader.h"
 #include "shaders/whittedintegrator.h"
 #include "shaders/hemisfericaldirectintegrator.h"
+#include "shaders/areadirectintegrator.h"
 
 
 #include "materials/phong.h"
@@ -60,7 +61,7 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     Material* transmissive = new Transmissive(0.7);
     
     // Area light material - emissive square
-    Material* areaLight = new Emissive(Vector3D(30.0, 30.0, 30.0), Vector3D(0.0, 0.0, 0.0));
+    Material* areaLight = new Emissive(Vector3D(50.0, 50.0, 50.0), Vector3D(0.0, 0.0, 0.0));
 
 
     /* ******* */
@@ -234,7 +235,9 @@ int main()
     Shader *normalshader = new NormalShader(bgColor);
     Shader *whittedshader = new WhittedIntegrator(bgColor,5, 0.15f);
     //4.2: Hemispherical Direct Integrator
-    Shader *hemisfericaldirectshader = new HemisphericalDirectIntegrator(bgColor, 64);
+    Shader *hemisfericaldirectshader = new HemisphericalDirectIntegrator(bgColor, 256);
+    //4.3: Area Direct Integrator
+    Shader *areadirectshader = new AreaDirectIntegrator(bgColor, 64);
     //(... normal, whitted) ...
 
   
@@ -257,8 +260,10 @@ int main()
     auto start = high_resolution_clock::now();
     //Task 4.1
     //raytrace(cam, whittedshader, film, myScene.objectsList, myScene.LightSourceList);
-    //Task 4.2
-    raytrace(cam, hemisfericaldirectshader, film, myScene.objectsList, myScene.LightSourceList);
+    //Task 4.2.2
+    //raytrace(cam, hemisfericaldirectshader, film, myScene.objectsList, myScene.LightSourceList);
+    //Task 4.2.2: Area Direct Integrator
+    raytrace(cam, areadirectshader, film, myScene.objectsList, myScene.LightSourceList);
     auto stop = high_resolution_clock::now();
 
     

@@ -51,7 +51,7 @@ Vector3D WhittedIntegrator::computeColorRecursive(
         for (const LightSource* L : lsList)  // Loop over nL light sources
         {
             // Sample light position (for point lights: single position; area lights: random sample)
-            const Vector3D lightPos = L->sampleLightPosition();
+            const Vector3D lightPos = L->generateRandomPoint();
             Vector3D Li = L->getIntensity();
 
             // Compute incident direction ω_i^s: from shading point x to light position

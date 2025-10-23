@@ -16,7 +16,7 @@ public:
 
 
     Vector3D getIntensity() const { return intensity; };
-    Vector3D sampleLightPosition() const { return pos; };
+    Vector3D generateRandomPoint() const { return pos; };
 
     ////A point light emits light uniformly in all directions
     //Its Area is zero and have no Normal
