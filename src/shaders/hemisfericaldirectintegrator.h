@@ -1,12 +1,12 @@
-#ifndef AREADIRECTINTEGRATOR_H
-#define AREADIRECTINTEGRATOR_H
+#ifndef HEMISPHERICALDIRECTINTEGRATOR_H
+#define HEMISPHERICALDIRECTINTEGRATOR_H
 
 #include "shader.h"
 
-class AreaDirectIntegrator : public Shader
+class HemisphericalDirectIntegrator : public Shader
 {
 public:
-    AreaDirectIntegrator(Vector3D bgColor_, int numSamples_);
+    HemisphericalDirectIntegrator(Vector3D bgColor_, int numSamples_);
     
     virtual Vector3D computeColor(const Ray &r,
                                  const std::vector<Shape*> &objList,
@@ -16,5 +16,5 @@ private:
     int numSamples;
 };
 
-#endif // AREADIRECTINTEGRATOR_H
+#endif // HEMISPHERICALDIRECTINTEGRATOR_H
 
