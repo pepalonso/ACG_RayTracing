@@ -14,7 +14,7 @@ public:
 
 
     Vector3D getIntensity() const;        
-    Vector3D generateRandomPoint() const;  // Generate random point inside the rectangle
+    Vector3D generateRandomPoint() const; 
 
     double getArea() const {
         Vector3D square_dim = myAreaLightsource->v1 + myAreaLightsource->v2;

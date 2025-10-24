@@ -61,7 +61,7 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     Material* transmissive = new Transmissive(0.7);
     
     // Area light material - emissive square
-    Material* areaLight = new Emissive(Vector3D(50.0, 50.0, 50.0), Vector3D(0.0, 0.0, 0.0));
+    Material* areaLight = new Emissive(Vector3D(50.0, 50.0, 50.0), Vector3D(10.0, 10.0, 10.0));
 
 
     /* ******* */
@@ -237,7 +237,7 @@ int main()
     //4.2: Hemispherical Direct Integrator
     Shader *hemisfericaldirectshader = new HemisphericalDirectIntegrator(bgColor, 256);
     //4.3: Area Direct Integrator
-    Shader *areadirectshader = new AreaDirectIntegrator(bgColor, 64);
+    Shader *areadirectshader = new AreaDirectIntegrator(bgColor,256);
     //(... normal, whitted) ...
 
   

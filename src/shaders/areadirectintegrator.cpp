@@ -41,7 +41,59 @@ Vector3D AreaDirectIntegrator::computeColor(const Ray &ray,
         Lo += surfaceMaterial.getEmissiveRadiance();
     }
 
-    // TODO: Add mirror and glass handling later
+    // Handle Specular Reflection (Mirror materials)
+    if (surfaceMaterial.hasSpecular())
+    {
+        // Compute ideal reflection direction: ω_r = 2(n · ω_o)n - ω_o
+        Vector3D wr = 2.0 * dot(normal, wo) * normal - wo;
+        wr = wr.normalized();
+
+        // Create reflected ray from surface point in direction ω_r
+        Ray reflectedRay(x, wr);
+        
+        // Recursively trace reflected ray
+        Vector3D reflectedRadiance = computeColor(reflectedRay, objList, lsList);
+        
+        // Add reflected contribution weighted by mirror's reflectance
+        Lo += reflectedRadiance * surfaceMaterial.getDiffuseReflectance();
+    }
+
+    // Handle Perfect Specular Transmission (Refractive materials)
+    if (surfaceMaterial.hasTransmission())
+    {
+        // Determine if ray is entering or exiting the material
+        double n_dot_wo = dot(normal, wo);
+        bool entering = n_dot_wo > 0;
+        
+        // Get refractive index ratio μ_t = η₁/η₂
+        double mu_t = surfaceMaterial.getIndexOfRefraction();
+        
+        // Flip normal and mu if exiting (going from denser to less dense medium)
+        Vector3D n_refr = entering ? normal : -normal;
+        double mu = entering ? mu_t : 1.0 / mu_t;
+        double cos_theta = std::abs(n_dot_wo);
+        
+        // Check for total internal reflection using radicand from Equation 8
+        double radicand = 1.0 - mu * mu * (1.0 - cos_theta * cos_theta);
+        
+        if (radicand >= 0.0)  // No total internal reflection
+        {
+            // Compute transmission direction: ω_t = -μ·ω_o + n(μ(n·ω_o) - √radicand) [Eq. 8]
+            double sqrt_term = std::sqrt(radicand);
+            Vector3D wt = -mu * wo + n_refr * (mu * cos_theta - sqrt_term);
+            wt = wt.normalized();
+            
+            // Create transmitted ray (offset in opposite direction of normal)
+            Ray transmittedRay(x, wt);
+            
+            // Recursively trace transmitted ray
+            Vector3D transmittedRadiance = computeColor(transmittedRay, objList, lsList);
+            
+            // Add transmitted contribution (no color filtering for pure glass)
+            Lo += transmittedRadiance;
+        }
+        // If radicand < 0: total internal reflection occurs, no transmission
+    }
 
     return Lo;
 }
@@ -128,7 +180,7 @@ bool AreaDirectIntegrator::computeVisibility(const Vector3D& x, const Vector3D& 
     
     // Create shadow ray from x in direction of y
     Ray shadowRay(x, direction);
-    shadowRay.maxT = distance;  // Stop at y
+    shadowRay.maxT = distance - Epsilon;  // Stop at y
         
     // Check if any object blocks the path from x to y
     return !Utils::hasIntersection(shadowRay, objList);
