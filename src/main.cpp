@@ -20,6 +20,7 @@
 #include "shaders/whittedintegrator.h"
 #include "shaders/hemisfericaldirectintegrator.h"
 #include "shaders/areadirectintegrator.h"
+#include "shaders/purepathtracingintegrator.h"
 
 
 #include "materials/phong.h"
@@ -56,7 +57,7 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     Material* cyandiffuse = new Phong(Vector3D(0.2, 0.8, 0.8), Vector3D(0, 0, 0), 100);
     Material* emissive = new Emissive(Vector3D(25, 25, 25), Vector3D(0.5));
 
-    Material* mirror = new Mirror();
+    Material* mirror = new Mirror(Vector3D(1.0, 1.0, 1.0));  // Perfect white mirror
     Material* transmissive = new Transmissive(0.7);
 
     /* ******* */
@@ -142,7 +143,8 @@ void buildSceneSphere(Camera*& cam, Film*& film,
 }
 
 void raytrace(Camera* &cam, Shader* &shader, Film* &film,
-              std::vector<Shape*>* &objectsList, std::vector<LightSource*>* &lightSourceList)
+              std::vector<Shape*>* &objectsList, std::vector<LightSource*>* &lightSourceList,
+              int numSamples = 1)
 {
     
     double my_PI = 0.0;
@@ -166,12 +168,21 @@ void raytrace(Camera* &cam, Shader* &shader, Film* &film,
             // Compute the pixel position in NDC
             double x = (double)(col + 0.5) / resX;
             double y = (double)(lin + 0.5) / resY;
-            // Generate the camera ray
-            Ray cameraRay = cam->generateRay(x, y);
+            
             Vector3D pixelColor = Vector3D(0.0);
 
-            // Compute ray color according to the used shader
-            pixelColor += shader->computeColor(cameraRay, *objectsList, *lightSourceList);
+            // Trace multiple samples per pixel, if no numSamples is provided, use 1 sample per pixel
+            for (int sample = 0; sample < numSamples; sample++)
+            {
+                // Generate the camera ray
+                Ray cameraRay = cam->generateRay(x, y);
+                
+                // Compute ray color according to the used shader
+                pixelColor += shader->computeColor(cameraRay, *objectsList, *lightSourceList);
+            }
+
+            // Average all samples
+            pixelColor = pixelColor / numSamples;
 
             // Store the pixel color
             film->setPixelValue(col, lin, pixelColor);
@@ -227,10 +238,12 @@ int main()
     Shader *depthshader = new DepthShader (intersectionColor,7.5f, bgColor);
     Shader *normalshader = new NormalShader(bgColor);
     Shader *whittedshader = new WhittedIntegrator(bgColor,5, 0.15f);
-    //4.2: Hemispherical Direct Integrator
+    //4.2.1: Hemispherical Direct Integrator
     Shader *hemisfericaldirectshader = new HemisphericalDirectIntegrator(bgColor, 256);
-    //4.3: Area Direct Integrator
-    Shader *areadirectshader = new AreaDirectIntegrator(bgColor,256);
+    //4.2.2: Area Direct Integrator
+    Shader *areadirectshader = new AreaDirectIntegrator(bgColor, 256);
+    //4.3.1: Pure Path Tracing Integrator
+    Shader *purepathshader = new PurePathTracingIntegrator(bgColor, 5); 
     //(... normal, whitted) ...
 
   
@@ -253,10 +266,12 @@ int main()
     auto start = high_resolution_clock::now();
     //Task 4.1
     //raytrace(cam, whittedshader, film, myScene.objectsList, myScene.LightSourceList);
-    //Task 4.2.2
+    //Task 4.2.1: Hemispherical Direct Integrator
     //raytrace(cam, hemisfericaldirectshader, film, myScene.objectsList, myScene.LightSourceList);
     //Task 4.2.2: Area Direct Integrator
-    raytrace(cam, areadirectshader, film, myScene.objectsList, myScene.LightSourceList);
+    //raytrace(cam, areadirectshader, film, myScene.objectsList, myScene.LightSourceList);
+    //Task 4.3.1: Pure Path Tracing Integrator
+    raytrace(cam, purepathshader, film, myScene.objectsList, myScene.LightSourceList, 256);
     auto stop = high_resolution_clock::now();
 
     
