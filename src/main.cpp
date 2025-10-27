@@ -21,6 +21,7 @@
 #include "shaders/hemisfericaldirectintegrator.h"
 #include "shaders/areadirectintegrator.h"
 #include "shaders/purepathtracingintegrator.h"
+#include "shaders/nexteventestimatorintegration.h"
 
 
 #include "materials/phong.h"
@@ -90,7 +91,10 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
 
     Matrix4x4 sphereTransform2;
     sphereTransform2 = Matrix4x4::translate(Vector3D(-1.5, -offset + 3*radius, 4));
-    Shape* s2 = new Sphere(radius, sphereTransform2, transmissive);
+    // Blue glossy sphere for the  4.3.2
+    Shape* s2 = new Sphere(radius, sphereTransform2, blueGlossy_80);
+    // Transmissive sphare for the rest of tasks
+    //Shape* s2 = new Sphere(radius, sphereTransform2, transmissive);
 
     Shape* square = new Square(Vector3D(offset + 0.999, -offset-0.2, 3.0), Vector3D(0.0, 4.0, 0.0), Vector3D(0.0, 0.0, 2.0), Vector3D(-1.0, 0.0, 0.0), mirror);
 
@@ -243,7 +247,9 @@ int main()
     //4.2.2: Area Direct Integrator
     Shader *areadirectshader = new AreaDirectIntegrator(bgColor, 256);
     //4.3.1: Pure Path Tracing Integrator
-    Shader *purepathshader = new PurePathTracingIntegrator(bgColor, 5); 
+    Shader *purepathshader = new PurePathTracingIntegrator(bgColor, 5);
+    //4.3.2: Next Event Estimation Integrator
+    Shader *neeshader = new NextEventEstimatorIntegrator(bgColor, 5);
     //(... normal, whitted) ...
 
   
@@ -271,7 +277,9 @@ int main()
     //Task 4.2.2: Area Direct Integrator
     //raytrace(cam, areadirectshader, film, myScene.objectsList, myScene.LightSourceList);
     //Task 4.3.1: Pure Path Tracing Integrator
-    raytrace(cam, purepathshader, film, myScene.objectsList, myScene.LightSourceList, 256);
+    //raytrace(cam, purepathshader, film, myScene.objectsList, myScene.LightSourceList, 32);
+    //Task 4.3.2: Next Event Estimation Integrator
+    raytrace(cam, neeshader, film, myScene.objectsList, myScene.LightSourceList, 256);
     auto stop = high_resolution_clock::now();
 
     
