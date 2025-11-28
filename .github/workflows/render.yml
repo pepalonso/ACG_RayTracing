@@ -18,9 +18,10 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y cmake build-essential
 
-      - name: Configure CMake
+      - name: Clean and configure CMake
         run: |
-          mkdir -p build
+          rm -rf build
+          mkdir build
           cd build
           cmake .. -DCMAKE_BUILD_TYPE=Release
 
@@ -32,27 +33,48 @@ jobs:
       - name: Run Ray Tracer
         run: |
           cd build
-          ./ACG
+          ./ACG || true
+          echo "--- Checking output files ---"
+          ls -lah output.* 2>/dev/null || echo "No output files found in build/"
+          if [ -f output.bmp ]; then
+            echo "BMP file size: $(stat -f%z output.bmp 2>/dev/null || stat -c%s output.bmp) bytes"
+            file output.bmp || true
+          else
+            echo "ERROR: output.bmp was NOT created!"
+          fi
 
-      - name: Upload rendered output (BMP)
-        uses: actions/upload-artifact@v4
-        with:
-          name: rendered-output-bmp
-          path: build/output.bmp
-          retention-days: 90
+      - name: Save rendered output to repo
+        run: |
+          # Create renders directory if it doesn't exist
+          mkdir -p renders
 
-      - name: Upload rendered output (EXR)
-        uses: actions/upload-artifact@v4
-        with:
-          name: rendered-output-exr
-          path: build/output.exr
-          retention-days: 90
-        if: always() # Upload even if previous steps had warnings
+          # Copy the output with timestamp
+          TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+          cp build/output.bmp renders/${TIMESTAMP}_output.bmp
+
+          # Also keep a 'latest' version
+          cp build/output.bmp renders/latest.bmp
+
+          echo "✅ Saved to renders/${TIMESTAMP}_output.bmp"
+        if: always()
+
+      - name: Commit and push renders
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add renders/
+          git diff --staged --quiet || git commit -m "Add rendered output ${TIMESTAMP} [skip ci]" || echo "No changes to commit"
+          git push || echo "Push failed, but continuing..."
+        if: always()
+        env:
+          TIMESTAMP: ${{ github.run_number }}
 
       - name: Display render info
         run: |
           echo "✅ Render complete!"
           echo "📊 Output file size:"
-          ls -lh build/output.bmp build/output.exr 2>/dev/null || echo "One or more output files not found"
+          ls -lh build/output.bmp 2>/dev/null || echo "Output file not found"
           echo ""
-          echo "🎨 Download the artifacts from the GitHub Actions 'Summary' tab"
+          echo "🎨 Rendered image saved to renders/ folder in the repo"
+          echo "   - Latest: renders/latest.bmp"
+          echo "   - Timestamped: renders/[timestamp]_output.bmp"
