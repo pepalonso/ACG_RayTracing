@@ -241,11 +241,11 @@ int main()
     Shader *shader = new IntersectionShader (intersectionColor, bgColor);
     Shader *depthshader = new DepthShader (intersectionColor,7.5f, bgColor);
     Shader *normalshader = new NormalShader(bgColor);
-    Shader *whittedshader = new WhittedIntegrator(bgColor,5, 0.15f);
+    Shader *whittedshader = new WhittedIntegrator(bgColor,10, 0.25f);
     //4.2.1: Hemispherical Direct Integrator
-    Shader *hemisfericaldirectshader = new HemisphericalDirectIntegrator(bgColor, 256);
+    Shader *hemisfericaldirectshader = new HemisphericalDirectIntegrator(bgColor, 64);
     //4.2.2: Area Direct Integrator
-    Shader *areadirectshader = new AreaDirectIntegrator(bgColor, 256);
+    Shader *areadirectshader = new AreaDirectIntegrator(bgColor, 64);
     //4.3.1: Pure Path Tracing Integrator
     Shader *purepathshader = new PurePathTracingIntegrator(bgColor, 5);
     //4.3.2: Next Event Estimation Integrator
@@ -271,7 +271,7 @@ int main()
     // Launch some rays! TASK 2,3,...   
     auto start = high_resolution_clock::now();
     //Task 4.1
-    //raytrace(cam, whittedshader, film, myScene.objectsList, myScene.LightSourceList);
+    raytrace(cam, whittedshader, film, myScene.objectsList, myScene.LightSourceList);
     //Task 4.2.1: Hemispherical Direct Integrator
     //raytrace(cam, hemisfericaldirectshader, film, myScene.objectsList, myScene.LightSourceList);
     //Task 4.2.2: Area Direct Integrator
@@ -279,7 +279,7 @@ int main()
     //Task 4.3.1: Pure Path Tracing Integrator
     //raytrace(cam, purepathshader, film, myScene.objectsList, myScene.LightSourceList, 32);
     //Task 4.3.2: Next Event Estimation Integrator
-    raytrace(cam, neeshader, film, myScene.objectsList, myScene.LightSourceList, 256);
+    //raytrace(cam, neeshader, film, myScene.objectsList, myScene.LightSourceList, 256);
     auto stop = high_resolution_clock::now();
 
     
