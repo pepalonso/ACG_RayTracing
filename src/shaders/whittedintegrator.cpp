@@ -80,7 +80,7 @@ Vector3D WhittedIntegrator::computeColorRecursive(
             const Vector3D fr = mat.getReflectance(n, wo, wi);
 
             // Compute cosine term: (ω_i · n_x)
-            // Ensures no contribution from light coming from behind the surface
+            // Ensures no contribution from light coming from behind the surfacea
             const double wi_dot_n = std::max(0.0, dot(wi, n));
 
             // Add contribution from this light source

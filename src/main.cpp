@@ -22,6 +22,8 @@
 #include "shaders/areadirectintegrator.h"
 #include "shaders/purepathtracingintegrator.h"
 #include "shaders/nexteventestimatorintegration.h"
+#include "shaders/ambientocclusionintegrator.h"
+#include "shaders/constantambientintegrator.h"
 
 
 #include "materials/phong.h"
@@ -84,23 +86,60 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
 
 
     // Place the Spheres inside the Cornell Box
-    double radius = 1;         
+    // Create a pyramid of spheres to demonstrate ambient occlusion
+    Material* orangeDiffuse = new Phong(Vector3D(0.9, 0.5, 0.2), Vector3D(0, 0, 0), 100);
+    double pyramidRadius = 0.6;
+    
+    // BOTTOM LAYER: 4 spheres in a square pattern on the ground
     Matrix4x4 sphereTransform1;
-    sphereTransform1 = Matrix4x4::translate(Vector3D(1.5, -offset + radius, 6));
-    Shape* s1 = new Sphere(radius, sphereTransform1, blueGlossy_20); 
-
+    sphereTransform1 = Matrix4x4::translate(Vector3D(-0.8, -offset + pyramidRadius, 5.2));
+    Shape* s1 = new Sphere(pyramidRadius, sphereTransform1, orangeDiffuse);
+    
     Matrix4x4 sphereTransform2;
-    sphereTransform2 = Matrix4x4::translate(Vector3D(-1.5, -offset + 3*radius, 4));
-    // Blue glossy sphere for the  4.3.2
-    Shape* s2 = new Sphere(radius, sphereTransform2, blueGlossy_80);
-    // Transmissive sphare for the rest of tasks
-    //Shape* s2 = new Sphere(radius, sphereTransform2, transmissive);
-
-    Shape* square = new Square(Vector3D(offset + 0.999, -offset-0.2, 3.0), Vector3D(0.0, 4.0, 0.0), Vector3D(0.0, 0.0, 2.0), Vector3D(-1.0, 0.0, 0.0), mirror);
+    sphereTransform2 = Matrix4x4::translate(Vector3D(0.8, -offset + pyramidRadius, 5.2));
+    Shape* s2 = new Sphere(pyramidRadius, sphereTransform2, orangeDiffuse);
+    
+    Matrix4x4 sphereTransform3;
+    sphereTransform3 = Matrix4x4::translate(Vector3D(-0.8, -offset + pyramidRadius, 6.8));
+    Shape* s3 = new Sphere(pyramidRadius, sphereTransform3, orangeDiffuse);
+    
+    Matrix4x4 sphereTransform4;
+    sphereTransform4 = Matrix4x4::translate(Vector3D(0.8, -offset + pyramidRadius, 6.8));
+    Shape* s4 = new Sphere(pyramidRadius, sphereTransform4, orangeDiffuse);
+    
+    // SECOND LAYER: 4 spheres in a tighter square (closer together), nestled on top
+    double layer2Height = -offset + pyramidRadius + 1.0;
+    Matrix4x4 sphereTransform5;
+    sphereTransform5 = Matrix4x4::translate(Vector3D(-0.4, layer2Height, 5.6));
+    Shape* s5 = new Sphere(pyramidRadius, sphereTransform5, orangeDiffuse);
+    
+    Matrix4x4 sphereTransform6;
+    sphereTransform6 = Matrix4x4::translate(Vector3D(0.4, layer2Height, 5.6));
+    Shape* s6 = new Sphere(pyramidRadius, sphereTransform6, orangeDiffuse);
+    
+    Matrix4x4 sphereTransform7;
+    sphereTransform7 = Matrix4x4::translate(Vector3D(-0.4, layer2Height, 6.4));
+    Shape* s7 = new Sphere(pyramidRadius, sphereTransform7, orangeDiffuse);
+    
+    Matrix4x4 sphereTransform8;
+    sphereTransform8 = Matrix4x4::translate(Vector3D(0.4, layer2Height, 6.4));
+    Shape* s8 = new Sphere(pyramidRadius, sphereTransform8, orangeDiffuse);
+    
+    // TOP LAYER: 1 sphere on the peak
+    double layer3Height = layer2Height + 1.0;
+    Matrix4x4 sphereTransform9;
+    sphereTransform9 = Matrix4x4::translate(Vector3D(0.0, layer3Height, 6.0));
+    Shape* s9 = new Sphere(pyramidRadius, sphereTransform9, orangeDiffuse);
 
     myScene.AddObject(s1);
     myScene.AddObject(s2);
-    myScene.AddObject(square);
+    myScene.AddObject(s3);
+    myScene.AddObject(s4);
+    myScene.AddObject(s5);
+    myScene.AddObject(s6);
+    myScene.AddObject(s7);
+    myScene.AddObject(s8);
+    myScene.AddObject(s9);
 }
 
 
@@ -250,6 +289,10 @@ int main()
     Shader *purepathshader = new PurePathTracingIntegrator(bgColor, 5);
     //4.3.2: Next Event Estimation Integrator
     Shader *neeshader = new NextEventEstimatorIntegrator(bgColor, 5);
+    //Ambient Occlusion Integrator
+    Shader *ambientOcclusionShader = new AmbientOcclusionIntegrator(bgColor, 64, 0.3f);
+    //Constant Ambient Integrator (for comparison)
+    Shader *constantAmbientShader = new ConstantAmbientIntegrator(bgColor, 0.8f);
     //(... normal, whitted) ...
 
   
@@ -271,7 +314,7 @@ int main()
     // Launch some rays! TASK 2,3,...   
     auto start = high_resolution_clock::now();
     //Task 4.1
-    raytrace(cam, whittedshader, film, myScene.objectsList, myScene.LightSourceList);
+    //raytrace(cam, whittedshader, film, myScene.objectsList, myScene.LightSourceList);
     //Task 4.2.1: Hemispherical Direct Integrator
     //raytrace(cam, hemisfericaldirectshader, film, myScene.objectsList, myScene.LightSourceList);
     //Task 4.2.2: Area Direct Integrator
@@ -280,6 +323,10 @@ int main()
     //raytrace(cam, purepathshader, film, myScene.objectsList, myScene.LightSourceList, 32);
     //Task 4.3.2: Next Event Estimation Integrator
     //raytrace(cam, neeshader, film, myScene.objectsList, myScene.LightSourceList, 256);
+    //Ambient Occlusion
+    raytrace(cam, ambientOcclusionShader, film, myScene.objectsList, myScene.LightSourceList);
+    //Constant Ambient (for comparison with AO)
+    //raytrace(cam, constantAmbientShader, film, myScene.objectsList, myScene.LightSourceList);
     auto stop = high_resolution_clock::now();
 
     
