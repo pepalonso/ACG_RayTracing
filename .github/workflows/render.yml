@@ -1,0 +1,58 @@
+name: Render Ray Tracing Scene
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch: # Allows manual triggering from GitHub UI
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake build-essential
+
+      - name: Configure CMake
+        run: |
+          mkdir -p build
+          cd build
+          cmake .. -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build project
+        run: |
+          cd build
+          cmake --build . -j$(nproc)
+
+      - name: Run Ray Tracer
+        run: |
+          cd build
+          ./ACG
+
+      - name: Upload rendered output (BMP)
+        uses: actions/upload-artifact@v4
+        with:
+          name: rendered-output-bmp
+          path: build/output.bmp
+          retention-days: 90
+
+      - name: Upload rendered output (EXR)
+        uses: actions/upload-artifact@v4
+        with:
+          name: rendered-output-exr
+          path: build/output.exr
+          retention-days: 90
+        if: always() # Upload even if previous steps had warnings
+
+      - name: Display render info
+        run: |
+          echo "✅ Render complete!"
+          echo "📊 Output file size:"
+          ls -lh build/output.bmp build/output.exr 2>/dev/null || echo "One or more output files not found"
+          echo ""
+          echo "🎨 Download the artifacts from the GitHub Actions 'Summary' tab"
