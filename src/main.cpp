@@ -287,10 +287,10 @@ int main()
     Shader *areadirectshader = new AreaDirectIntegrator(bgColor, 64);
     //4.3.1: Pure Path Tracing Integrator
     Shader *purepathshader = new PurePathTracingIntegrator(bgColor, 5);
-    //4.3.2: Next Event Estimation Integrator
-    Shader *neeshader = new NextEventEstimatorIntegrator(bgColor, 5);
+    //4.3.2: Next Event Estimation Integrator (with AO: 16 samples, 0.3 max distance)
+    Shader *neeshader = new NextEventEstimatorIntegrator(bgColor, 5, 16, 0.3f);
     //Ambient Occlusion Integrator
-    Shader *ambientOcclusionShader = new AmbientOcclusionIntegrator(bgColor, 64, 0.3f);
+    Shader *ambientOcclusionShader = new AmbientOcclusionIntegrator(bgColor, 64, 0.5f);
     //Constant Ambient Integrator (for comparison)
     Shader *constantAmbientShader = new ConstantAmbientIntegrator(bgColor, 0.8f);
     //(... normal, whitted) ...
@@ -322,9 +322,9 @@ int main()
     //Task 4.3.1: Pure Path Tracing Integrator
     //raytrace(cam, purepathshader, film, myScene.objectsList, myScene.LightSourceList, 32);
     //Task 4.3.2: Next Event Estimation Integrator
-    //raytrace(cam, neeshader, film, myScene.objectsList, myScene.LightSourceList, 256);
+    raytrace(cam, neeshader, film, myScene.objectsList, myScene.LightSourceList, 64);
     //Ambient Occlusion
-    raytrace(cam, ambientOcclusionShader, film, myScene.objectsList, myScene.LightSourceList);
+    //raytrace(cam, ambientOcclusionShader, film, myScene.objectsList, myScene.LightSourceList);
     //Constant Ambient (for comparison with AO)
     //raytrace(cam, constantAmbientShader, film, myScene.objectsList, myScene.LightSourceList);
     auto stop = high_resolution_clock::now();

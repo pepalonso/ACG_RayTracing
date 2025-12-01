@@ -12,8 +12,8 @@
 #define M_PI 3.14159265358979323846
 #endif
 
-NextEventEstimatorIntegrator::NextEventEstimatorIntegrator(Vector3D bgColor_, int maxDepth_):
-    Shader(bgColor_), maxDepth(maxDepth_)
+NextEventEstimatorIntegrator::NextEventEstimatorIntegrator(Vector3D bgColor_, int maxDepth_, int aoSamples_, float aoMaxDistance_):
+    Shader(bgColor_), maxDepth(maxDepth_), aoSamples(aoSamples_), aoMaxDistance(aoMaxDistance_)
 { }
 
 Vector3D NextEventEstimatorIntegrator::computeColor(const Ray &ray, 
@@ -37,6 +37,13 @@ Vector3D NextEventEstimatorIntegrator::computeColor(const Ray &ray,
 
     // add reflected radiance (direct + indirect)
     Lo += computeReflectedRadiance(x, n, wo, material, ray.depth, objList, lsList);
+
+    // Apply ambient occlusion if enabled (only for primary rays and non-emissive surfaces)
+    if (aoSamples > 0 && ray.depth == 0 && !material.isEmissive())
+    {
+        float aoFactor = computeAmbientOcclusion(x, n, objList);
+        Lo = Lo * aoFactor;
+    }
 
     // Line 5: Return total radiance
     return Lo;
@@ -171,4 +178,39 @@ bool NextEventEstimatorIntegrator::computeVisibility(const Vector3D& x,
     Ray shadowRay(x, direction);
     shadowRay.maxT = distance - Epsilon;
     return !Utils::hasIntersection(shadowRay, objList);
+}
+
+// compute ambient occlusion factor
+float NextEventEstimatorIntegrator::computeAmbientOcclusion(const Vector3D& x,
+                                                            const Vector3D& n,
+                                                            const std::vector<Shape*>& objList) const
+{
+    HemisphericalSampler sampler;
+    int blockedRays = 0;
+    
+    // Cast aoSamples rays in random hemisphere directions
+    for (int i = 0; i < aoSamples; i++)
+    {
+        // Get a random direction in the hemisphere around the normal
+        Vector3D wi = sampler.getSample(n);
+        
+        // Create occlusion test ray from surface point in direction wi
+        Ray occlusionRay(x, wi);
+        occlusionRay.minT = Epsilon;  // Avoid self-intersection
+        occlusionRay.maxT = aoMaxDistance;  // Only check within maxDistance
+        
+        // Check if ray hits something within maxDistance
+        Intersection occlusionHit;
+        if (Utils::getClosestIntersection(occlusionRay, objList, occlusionHit))
+        {
+            // Ray hit something within maxDistance -> it's occluded
+            blockedRays++;
+        }
+    }
+    
+    // Compute AO factor
+    float occlusionFactor = (float)blockedRays / (float)aoSamples;
+    float aoFactor = 1.0f - occlusionFactor;  // 1.0 = fully lit, 0.0 = fully occluded
+    
+    return aoFactor;
 }
